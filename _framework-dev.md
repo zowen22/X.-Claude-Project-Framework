@@ -27,6 +27,7 @@ A reusable Claude project template. Clone it for any new project, fill in `1. Pr
 
 - The `.txt` extension issue on some files was a Claude Code download quirk — source files are all `.md`
 - `CLAUDE.md` serves double duty: Claude Code reads it automatically at session start, and it documents the framework for humans
+- Initial session was run from mobile — no local git clone exists; commits exist only on remote
 - Keep this file lean — it's a dev scratchpad, not a full project tracker
 
 -----
