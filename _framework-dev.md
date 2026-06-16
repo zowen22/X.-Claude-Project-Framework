@@ -16,6 +16,10 @@ A reusable Claude project template. Clone it for any new project, fill in `1. Pr
 - [x] `CLAUDE.md` with session routines and rules
 - [x] `Cowork Instructions - Paste.md` for Claude project instructions field
 
+## Conventions Decided
+
+- Work Packages task items: one clear verb phrase, ≤60 chars — detail goes in Technical Reference or Session Log
+
 ## Backlog / Future Improvements
 
 - [ ] Consider adding a `.github/` folder with issue/PR templates
