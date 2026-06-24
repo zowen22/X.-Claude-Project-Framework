@@ -19,6 +19,13 @@ Every project contains a `1. Project Management/` folder with these files:
 ## Open Audits
 Check `1. Project Management/Audits/` for any files with `Status: Open` or `Status: In Progress`. Treat open findings as active work items alongside the WP backlog. Do not rely on a hardcoded list here — read the directory to find current audit state.
 
+## Branched Plans
+Check `1. Project Management/Plans/` for any files with `Status: Evaluating` or `Status: In Progress`.  
+Lifecycle: `Evaluating` → `Decision: [chosen approach]` → `Archived`  
+When to create: two or more meaningful implementation paths need side-by-side comparison before committing.  
+Required fields: Approach A / Approach B (each with summary, tradeoffs, effort estimate, decision criteria).  
+Rule: record the chosen approach in Project Overview Decisions Log when resolved; archive the plan file.
+
 ## Work Package Conventions
 - Create a new WP when work has a distinct milestone, sprint, or audit to close. Add to the existing backlog WP (e.g. WP3.1 or equivalent) for standalone improvements with no natural grouping.
 - If the project has multiple components (web + mobile, frontend + backend), prefix WP tasks with the component (e.g. `[Web]`, `[iOS]`) and add a subsection per component in Technical Reference.
@@ -33,7 +40,7 @@ Each entry should include, at minimum:
 Flag any `STARTED` entry found at session start — it means a prior session was interrupted.
 
 ## Session Start Routine
-1. Read `3. Work Packages.md`, `5. Session Log.md`, and any open audit files to establish current state
+1. Read `3. Work Packages.md`, `5. Session Log.md`, and any open Audits/ or Plans/ files to establish current state
 2. Flag any `STARTED` entry in the Session Log immediately
 3. Confirm next priorities before beginning work
 
