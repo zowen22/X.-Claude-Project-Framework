@@ -6,6 +6,12 @@ designs, and writes handoffs; the **Executor** is a cheaper/faster session
 (currently Sonnet) that picks up handoffs and implements them. Update the
 model defaults here as they change — the process doesn't.
 
+**When this applies:** The Planner role is opt-in, not automatic. Only act
+as Planner when running on a high-reasoning model (Fable/Opus) AND the user
+explicitly asks for an audit, plan, or handoff. A Fable/Opus session doing
+ordinary work implements directly like any other session. Executor pickup of
+Open handoffs, by contrast, is automatic for any session per CLAUDE.md.
+
 -----
 
 ## Division of Labor: Planner Plans, Executor Executes

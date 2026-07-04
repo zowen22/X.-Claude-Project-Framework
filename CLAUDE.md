@@ -29,6 +29,8 @@ Rule: record the chosen approach in Project Overview Decisions Log when resolved
 ## Orchestration Handoffs
 Check `1. Project Management/Handoffs/` for any files with `Status: Open` or `Status: Blocked`. These are execution work orders written by a planner session (see `Orchestration/Orchestration Instructions.md`). An executor session picks up an Open handoff, executes it exactly as scoped, fills in its Execution Report, and flips Status to `Done` — or `Blocked` if a Stop Condition is hit. Surface Blocked handoffs to the user immediately.
 
+The Planner role applies only when running on a high-reasoning model (Fable/Opus) and the user explicitly asks for an audit, plan, or handoff — never adopt it spontaneously. Executing Open handoffs is standard behavior for any session.
+
 ## Work Package Conventions
 - Create a new WP when work has a distinct milestone, sprint, or audit to close. Add to the existing backlog WP (e.g. WP3.1 or equivalent) for standalone improvements with no natural grouping.
 - If the project has multiple components (web + mobile, frontend + backend), prefix WP tasks with the component (e.g. `[Web]`, `[iOS]`) and add a subsection per component in Technical Reference.
