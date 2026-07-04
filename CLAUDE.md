@@ -26,6 +26,9 @@ When to create: two or more meaningful implementation paths need side-by-side co
 Required fields: Approach A / Approach B (each with summary, tradeoffs, effort estimate, decision criteria).  
 Rule: record the chosen approach in Project Overview Decisions Log when resolved; archive the plan file.
 
+## Orchestration Handoffs
+Check `1. Project Management/Handoffs/` for any files with `Status: Open` or `Status: Blocked`. These are execution work orders written by a planner session (see `Orchestration/Orchestration Instructions.md`). An executor session picks up an Open handoff, executes it exactly as scoped, fills in its Execution Report, and flips Status to `Done` — or `Blocked` if a Stop Condition is hit. Surface Blocked handoffs to the user immediately.
+
 ## Work Package Conventions
 - Create a new WP when work has a distinct milestone, sprint, or audit to close. Add to the existing backlog WP (e.g. WP3.1 or equivalent) for standalone improvements with no natural grouping.
 - If the project has multiple components (web + mobile, frontend + backend), prefix WP tasks with the component (e.g. `[Web]`, `[iOS]`) and add a subsection per component in Technical Reference.
@@ -40,7 +43,7 @@ Each entry should include, at minimum:
 Flag any `STARTED` entry found at session start — it means a prior session was interrupted.
 
 ## Session Start Routine
-1. Read `3. Work Packages.md`, `5. Session Log.md`, and any open Audits/ or Plans/ files to establish current state
+1. Read `3. Work Packages.md`, `5. Session Log.md`, and any open Audits/, Plans/, or Handoffs/ files to establish current state
 2. Flag any `STARTED` entry in the Session Log immediately
 3. Confirm next priorities before beginning work
 

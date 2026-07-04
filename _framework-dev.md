@@ -40,3 +40,6 @@ A reusable Claude project template. Clone it for any new project, fill in `1. Pr
 
 ### 2026-06-11 - Initial setup
 Created full file structure from uploaded templates. Added `_framework-dev.md` (this file) for meta-tracking.
+
+### 2026-07-04 - Orchestration workflow added
+Ported "Fable Audit" docs from BetterGolfLeagueTracker as `Orchestration/` (model-agnostic naming: Planner/Executor roles). Improvements over golf league originals: handoff lifecycle (Open→In Progress→Done/Blocked), Execution Report section to close the loop, Depends on/Parallel-safe headers for dispatching concurrent executors, runnable verification in Definition of Done, dedicated `Handoffs/` folder (separate from Audits) checked at session start. Added stub `6. PM Template Improvement Suggestions.md` that CLAUDE.md already referenced.
