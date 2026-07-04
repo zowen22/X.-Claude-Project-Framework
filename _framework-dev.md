@@ -15,6 +15,10 @@ A reusable Claude project template. Clone it for any new project, fill in `1. Pr
 - [x] All 5 project management templates in place
 - [x] `CLAUDE.md` with session routines and rules
 - [x] `Cowork Instructions - Paste.md` for Claude project instructions field
+- [x] CLAUDE.md upgraded from BetterGolfLeagueTracker (Audits, WP conventions, Memory vs PM Files, etc.)
+- [x] Branched Plans convention (Plans/ folder)
+- [x] Orchestration workflow (Planner/Executor handoffs, Handoffs/ folder)
+- [x] `6. PM Template Improvement Suggestions.md` stub
 
 ## Conventions Decided
 
@@ -41,5 +45,9 @@ A reusable Claude project template. Clone it for any new project, fill in `1. Pr
 ### 2026-06-11 - Initial setup
 Created full file structure from uploaded templates. Added `_framework-dev.md` (this file) for meta-tracking.
 
-### 2026-07-04 - Orchestration workflow added
+### 2026-07-04 - Orchestration workflow added (COMPLETED)
 Ported "Fable Audit" docs from BetterGolfLeagueTracker as `Orchestration/` (model-agnostic naming: Planner/Executor roles). Improvements over golf league originals: handoff lifecycle (Open→In Progress→Done/Blocked), Execution Report section to close the loop, Depends on/Parallel-safe headers for dispatching concurrent executors, runnable verification in Definition of Done, dedicated `Handoffs/` folder (separate from Audits) checked at session start. Added stub `6. PM Template Improvement Suggestions.md` that CLAUDE.md already referenced.
+
+Decisions: Planner role is opt-in only — requires Fable/Opus AND explicit user request for audit/plan/handoff; executor pickup of Open handoffs is automatic for any session. Earlier same day: golf league CLAUDE.md adopted as source of truth over main's divergent version (force-pushed); Branched Plans section merged in.
+
+Next: golf league repo still uses old `Fable Audit/` structure — user declined migration for now. Handoff Template.md was rebuilt from a condensed fetch, not verbatim — user should skim to confirm nothing was lost.
