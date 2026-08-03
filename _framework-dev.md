@@ -19,6 +19,7 @@ A reusable Claude project template. Clone it for any new project, fill in `1. Pr
 - [x] Branched Plans convention (Plans/ folder)
 - [x] Orchestration workflow (Planner/Executor handoffs, Handoffs/ folder)
 - [x] `6. PM Template Improvement Suggestions.md` stub
+- [x] Project Dashboard compatibility contract in CLAUDE.md
 
 ## Conventions Decided
 
@@ -51,3 +52,9 @@ Ported "Fable Audit" docs from BetterGolfLeagueTracker as `Orchestration/` (mode
 Decisions: Planner role is opt-in only — requires Fable/Opus AND explicit user request for audit/plan/handoff; executor pickup of Open handoffs is automatic for any session. Earlier same day: golf league CLAUDE.md adopted as source of truth over main's divergent version (force-pushed); Branched Plans section merged in.
 
 Next: golf league repo still uses old `Fable Audit/` structure — user declined migration for now. Handoff Template.md was rebuilt from a condensed fetch, not verbatim — user should skim to confirm nothing was lost.
+
+### 2026-08-03 - Dashboard compatibility contract (COMPLETED)
+
+Added Project Dashboard Compatibility section to CLAUDE.md (user-authored, verbatim): dashboard at X.-Claude-Project-Dashboard polls `2. Project Overview.md` (Status value, Summary prose) and `3. Work Packages.md` (checkbox counts, first 5 unchecked as next steps) from public repos' main branch; new repos must be added to the PROJECTS array in the dashboard's index.html by hand.
+
+Open issue: dashboard requires public repos, but recent project repos were created private — flip to public or add token-based fetch to the dashboard.
