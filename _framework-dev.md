@@ -61,3 +61,9 @@ Next: golf league repo still uses old `Fable Audit/` structure — user declined
 Added Project Dashboard Compatibility section to CLAUDE.md (user-authored, verbatim): dashboard at X.-Claude-Project-Dashboard polls `2. Project Overview.md` (Status value, Summary prose) and `3. Work Packages.md` (checkbox counts, first 5 unchecked as next steps) from public repos' main branch; new repos must be added to the PROJECTS array in the dashboard's index.html by hand.
 
 Open issue: dashboard requires public repos, but recent project repos were created private — flip to public or add token-based fetch to the dashboard.
+
+### 2026-08-05 - Dashboard sync + PM improvement culture (COMPLETED)
+
+Corrected Project Dashboard Compatibility bullet: dashboard's `parseNextSteps` was changed to pull the **last** 5 unchecked Work Packages lines (was first 5), so active/current tasks surface instead of stale early-phase ones — CLAUDE.md now matches. Broadened PM Improvement Suggestions from reactive to proactive: agents should watch for PM structure gaps as standard practice while executing, not just note them incidentally. Added a **Role** section to this file establishing Claude as manager of the PM system across the framework and its interaction with the dashboard — catch drift proactively, not just execute asks in isolation.
+
+Also fixed the `## Status` placeholder in `2. Project Overview.md` (was three slash-separated values on one line, which the dashboard parses as "Unknown"; now a single `Planning` value with guidance below it).
