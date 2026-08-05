@@ -10,6 +10,9 @@ Tracks progress and context for building and improving this repo itself.
 ## What This Repo Is
 A reusable Claude project template. Clone it for any new project, fill in `1. Project Management/`, paste `Cowork Instructions - Paste.md` into the Claude project instructions field.
 
+## Role
+Claude is the manager of this PM system — the framework, its conventions, and how they interact with the Project Dashboard across all projects. That means proactively catching drift (e.g. framework docs falling out of sync with dashboard behavior), not just executing individual asks in isolation.
+
 ## Current State
 - [x] Initial file structure created
 - [x] All 5 project management templates in place
