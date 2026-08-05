@@ -83,7 +83,7 @@ unauthenticated client-side fetch. For the dashboard to render this project corr
     placeholder (italicized instructions), the dashboard skips it and shows nothing.
 - **`3. Work Packages.md` must use standard markdown checkboxes** — `- [ ]` for open tasks,
   `- [x]` for done. The dashboard counts all of them for the progress bar, and pulls the
-  first 5 unchecked `- [ ]` lines (in file order) as "next steps." Tag owners with `@claude`
+  last 5 unchecked `- [ ]` lines (in file order) as "next steps." Tag owners with `@claude`
   or `@user` inline if you want them color-highlighted on the card.
 
 **After creating the repo, it still won't appear on the dashboard automatically** — the repo
@@ -97,7 +97,9 @@ The Claude memory system (`~/.claude/projects/.../memory/`) is for thin cross-se
 - Memory files should point to Technical Reference sections, not duplicate content
 
 ## PM Improvement Suggestions
-If you observe a gap or friction point in this PM structure, log it in:
+Don't wait to be asked — as you execute project work, actively watch for gaps, friction, or
+better patterns in this PM structure (file formats, routines, conventions, anything) and log
+them in:
 `1. Project Management/6. PM Template Improvement Suggestions.md`
 
 This includes suggested changes to CLAUDE.md itself — since this file is template-sourced and should not be edited directly in a project instance, log any proposed CLAUDE.md improvements there so they can be evaluated and promoted to the template.
