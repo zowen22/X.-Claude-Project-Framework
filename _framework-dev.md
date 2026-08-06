@@ -23,6 +23,13 @@ Claude is the manager of this PM system — the framework, its conventions, and 
 - [x] Orchestration workflow (Planner/Executor handoffs, Handoffs/ folder)
 - [x] `6. PM Template Improvement Suggestions.md` stub
 - [x] Project Dashboard compatibility contract in CLAUDE.md
+- [x] `7. Environment Continuity.md` + cascading edits
+- [x] Deployment default (Vercel) + Access & Credentials convention in Technical Reference template
+
+## Open Handoffs (this repo's own Handoffs/ folder)
+- `2026-08-06-rollout-environment-continuity.md` — sync Environment Continuity changes to BetterGolfLeagueTracker and 7.-Golf-Shot-Dispersion-Tool
+- `2026-08-06-credential-inventory.md` — inventory where credentials live in those same repos (locations only, never values); run after/sequentially with the handoff above, not in parallel
+- Both need an executor session with actual GitHub access to those repos, which this session never had
 
 ## Conventions Decided
 
@@ -76,7 +83,7 @@ Blocked on rollout to existing projects: this session's GitHub access is scoped 
 
 Also noticed but did not act on: `Cowork Instructions - Paste.md` had drifted significantly behind `CLAUDE.md` even before today (missing Open Audits, Branched Plans, Orchestration Handoffs, WP Conventions, Session Log Format, Dashboard Compatibility, Memory vs PM Files sections) — only today's specific delta got synced into it. Full resync is a candidate for `6. PM Template Improvement Suggestions.md` or a future session.
 
-### 2026-08-06 (cont'd) - Deployment default + credential location convention
+### 2026-08-06 (cont'd) - Deployment default + credential location convention (COMPLETED)
 
 Added `## Deployment` (default: Vercel, for quick microsites — user's call, delegated to my judgment) and `## Access & Credentials` (document *where* a credential is managed, never the value) sections to the `4. Technical Reference.md` template. Added a Rules line to CLAUDE.md: never commit actual secret values, document the location instead.
 
