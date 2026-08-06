@@ -68,6 +68,7 @@ Flag any `STARTED` entry found at session start — it means a prior session was
 - Keep Technical Reference.md current as decisions are made
 - Keep all files lean — capture what matters, avoid noise
 - Commit and push after every meaningful increment, not in one batch at session end — see `7. Environment Continuity.md`
+- Never commit actual secret/credential values to any file — document where they're managed in Technical Reference → Access & Credentials, not what they are
 
 ## Project Dashboard Compatibility
 
