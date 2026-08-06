@@ -15,6 +15,8 @@ Every project contains a `1. Project Management/` folder with these files:
 3. `3. Work Packages.md` — WBS, tasks, ownership, progress
 4. `4. Technical Reference.md` — tech stack, architecture, conventions
 5. `5. Session Log.md` — chronological session history
+6. `6. PM Template Improvement Suggestions.md` — gaps/friction to promote to the template
+7. `7. Environment Continuity.md` — why local state can vanish between sessions; commit/push discipline
 
 ## Open Audits
 Check `1. Project Management/Audits/` for any files with `Status: Open` or `Status: In Progress`. Treat open findings as active work items alongside the WP backlog. Do not rely on a hardcoded list here — read the directory to find current audit state.
@@ -47,7 +49,8 @@ Flag any `STARTED` entry found at session start — it means a prior session was
 ## Session Start Routine
 1. Read `3. Work Packages.md`, `5. Session Log.md`, and any open Audits/, Plans/, or Handoffs/ files to establish current state
 2. Flag any `STARTED` entry in the Session Log immediately
-3. Confirm next priorities before beginning work
+3. Establish ground truth per `7. Environment Continuity.md` — check `git status`/`git branch`/`git log`, don't assume local state matches what the Session Log claims
+4. Confirm next priorities before beginning work
 
 ## Session End Routine
 1. Update all relevant project files based on work completed
@@ -64,6 +67,7 @@ Flag any `STARTED` entry found at session start — it means a prior session was
 - Promote significant decisions to Decisions Log in Project Overview.md
 - Keep Technical Reference.md current as decisions are made
 - Keep all files lean — capture what matters, avoid noise
+- Commit and push after every meaningful increment, not in one batch at session end — see `7. Environment Continuity.md`
 
 ## Project Dashboard Compatibility
 

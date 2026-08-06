@@ -71,32 +71,15 @@ Reference — keep them current there, not here.
 
 ## Cutoff Protection Protocol
 
-Usage limits can cut a session off mid-task with no warning. To make
-recovery possible:
+Usage limits can cut a session off mid-task with no warning — one instance
+of the general environment-continuity problem covered in
+`7. Environment Continuity.md` (checkpoint discipline, commit/push cadence,
+recovery steps). That file's protocol applies to Planner and Executor
+sessions exactly as written; the only addition here is Handoff-specific:
 
-**1. Checkpoint before each task.** At session start and before each
-distinct unit of work, append to `5. Session Log.md`:
-
-```
-[CHECKPOINT] Starting: <short task description> — <date/time>
-```
-
-**2. Mark completion after each task.** Immediately after finishing (before
-moving on), append:
-
-```
-[CHECKPOINT] Completed: <short task description> — <date/time>
-```
-
-**3. Commit after each task.** One discrete unit = one commit, pushed
-immediately. Never batch the whole session into one commit — after a
-cutoff, `git log` shows exactly what landed.
-
-**4. Recovery after a cutoff:**
-1. Read `5. Session Log.md` — last `[CHECKPOINT]` entries show completed vs. in-progress
-2. `git status` and `git log --oneline -10` confirm what was actually committed
-3. In-progress but uncommitted work: check `git diff`, decide keep or discard
-4. For Executors: the handoff's Execution Report shows how far it got
+- For Executors recovering mid-handoff, the handoff's own Execution Report
+  (partially filled or not) shows how far execution got, in addition to the
+  Session Log checkpoints and git history.
 
 ## Audit Scope Guidance
 

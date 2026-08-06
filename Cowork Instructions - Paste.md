@@ -17,6 +17,15 @@ Every project contains a `1. Project Management/` folder with these files:
 3. Work Packages.md — WBS, tasks, ownership, progress
 4. Technical Reference.md — tech stack, architecture, conventions
 5. Session Log.md — chronological session history
+6. PM Template Improvement Suggestions.md — gaps/friction to promote to the template
+7. Environment Continuity.md — why local state can vanish between sessions; commit/push discipline
+
+## Environment Continuity
+Nothing on local disk survives between sessions — only what's committed and
+pushed to the git remote is durable. This matters most here: mobile/Cowork
+sessions have no persistent filesystem at all. Commit and push after every
+meaningful increment, not in one batch at the end. See
+`7. Environment Continuity.md` for the full protocol.
 
 ## Session Start Routine
 1. Check if project files have been shared
