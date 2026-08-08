@@ -67,6 +67,36 @@ re-file this as new.
 
 -----
 
+### [8.-Magic-Band] 2026-08-07 — Dashboard "next steps" heuristic is unreliable, and its doc is out of sync with its code
+**Outcome:** Fully resolved 2026-08-08, together with the Work Packages
+item-length problem from BGLT handoff
+`2026-08-08-dashboard-next-steps-vs-wp-granularity.md` — both were the same
+`parseNextSteps` function in `X.-Claude-Project-Dashboard/index.html`.
+
+Shipped: sections whose heading marker reads `*(COMPLETE)*` / `*(PAUSED …)*`
+/ `*(SKIPPED …)*` / `*(Deferred)*` are skipped (an `*(In Progress)*` marker
+always wins); the last 5 remaining unchecked items are taken in file order;
+each is displayed as its headline only (≤95 chars verbatim, longer lines cut
+at the first ` — `, ` -- `, or `: ` after dropping markdown and short
+parentheticals). Template CLAUDE.md gained the matching Rules bullets and a
+rewritten Project Dashboard Compatibility section, including the companion
+"keep heading markers accurate" rule this suggestion asked for.
+
+**Rejected sub-proposal, recorded so it isn't re-proposed:** the suggestion's
+part (2) — make selection phase-aware by preferring "the most-advanced phase
+with any checked items" — was prototyped against all 9 dashboard repos and
+*made 5 of them worse*, surfacing ancient Phase-1 setup items over current
+work, because completed WPs routinely retain unchecked stragglers. File-order
+recency plus explicit heading markers beat it on every repo tested. Don't
+re-adopt the tiering idea without new evidence.
+
+**Not done (deliberate):** sibling projects' live CLAUDE.md files were not
+synced — @user chose "template only, sync later" on 2026-08-08. Every project
+except the template still documents the old ≤60-character rule and the old
+next-steps behavior. See "Pending review" below.
+
+-----
+
 ## Resolved outside the template (not a CLAUDE.md change)
 
 ### [BetterGolfLeagueTracker] 2026-08-03 — Check available MCP connectors before declaring a task blocked
@@ -84,9 +114,23 @@ elsewhere with the same substance.
 
 *Everything not listed above (or listed above with a "still open" residual)
 is still open. See `Consolidated Suggestions.md` in this folder for the
-current list — as of 2026-08-07 that's items #1–#7 there, sourced from
-`8.-Magic-Band` and `BetterGolfLeagueTracker`. Items #1, #2, and #7 there
-are residuals of suggestions logged as "Promoted" above — read both files
-together, not `Consolidated Suggestions.md` alone, when doing a check.*
+current list — as of 2026-08-08 that's items #1 and #3–#7 there (#2 is
+resolved), sourced from `8.-Magic-Band` and `BetterGolfLeagueTracker`. Items
+#1 and #7 are residuals of suggestions logged as "Promoted" above — read
+both files together, not `Consolidated Suggestions.md` alone, when doing a
+check.*
+
+**Carried forward from the 2026-08-08 dashboard work — sibling CLAUDE.md
+sync.** The template's Rules and Project Dashboard Compatibility sections
+changed materially (≤60-char rule replaced; next-steps behavior rewritten).
+@user deferred rolling that into the 8 sibling repos. Until it happens, every
+project instance's CLAUDE.md tells sessions to obey a rule the dashboard no
+longer enforces, and BGLT's copy additionally still claims "first 5"
+(corrected to "last 5" in the template back on 2026-08-05). Nothing breaks —
+the fix is entirely dashboard-side — but the docs are knowingly stale. Repos
+needing the sync: `1.-Autonomous-UAVs`, `6.-Curriculum-Tool`,
+`7.-Golf-Shot-Dispersion-Tool`, `8.-Magic-Band`,
+`9.-High-Ground-Coffee-Club`, `BetterGolfLeagueTracker`, `11.-Resume`,
+`12.-Zach-Owen.com`.
 
 -----

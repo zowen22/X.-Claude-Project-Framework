@@ -62,7 +62,8 @@ Flag any `STARTED` entry found at session start — it means a prior session was
 
 ## Rules
 - Tag all tasks @claude or @user in Work Packages.md
-- Keep Work Packages task items to one clear verb phrase, ≤60 characters — detail belongs in Technical Reference or Session Log
+- Lead every Work Packages item with a plain-language headline that stands on its own — aim for ≤90 characters, no jargon, readable cold by someone who wasn't in the session. This is the part the Project Dashboard shows.
+- Keep the detail. Put it after ` — ` on the same line, or on indented lines beneath the item. The dashboard reads only the headline, so nothing is lost by writing as much context as the task deserves — front-load the headline instead of trimming the detail.
 - Never delete completed tasks — mark [x]
 - Promote significant decisions to Decisions Log in Project Overview.md
 - Keep Technical Reference.md current as decisions are made
@@ -87,9 +88,23 @@ unauthenticated client-side fetch. For the dashboard to render this project corr
   - A `## Summary` section with real prose (2-3 sentences). If it's still the template
     placeholder (italicized instructions), the dashboard skips it and shows nothing.
 - **`3. Work Packages.md` must use standard markdown checkboxes** — `- [ ]` for open tasks,
-  `- [x]` for done. The dashboard counts all of them for the progress bar, and pulls the
-  last 5 unchecked `- [ ]` lines (in file order) as "next steps." Tag owners with `@claude`
-  or `@user` inline if you want them color-highlighted on the card.
+  `- [x]` for done, at column 0 (indented checkboxes are invisible to the dashboard, for
+  both the progress bar and next steps). Tag owners with `@claude` or `@user` inline if you
+  want them color-highlighted on the card.
+- **How "next steps" are chosen.** The dashboard counts every checkbox for the progress bar.
+  For the next-steps preview it then:
+  1. Skips any section whose heading marker says the work is finished or parked —
+     `*(COMPLETE)*`, `*(Complete — 2026-06-30)*`, `*(PAUSED …)*`, `*(SKIPPED …)*`,
+     `*(Deferred)*`. A marker saying `*(In Progress)*` is always kept.
+  2. Takes the last 5 remaining unchecked items in file order (new work packages get
+     appended, so file order approximates recency).
+  3. Shows each item's **headline only** — a line at or under ~95 characters is shown
+     exactly as written; anything longer is shortened to its leading headline (cut at the
+     first ` — `, ` -- `, or `: `, with markdown and short parentheticals dropped).
+- **Keep phase/WP heading markers accurate.** Step 1 above trusts them. Mark a WP complete
+  when it closes and paused when it stalls — a stale `*(COMPLETE)*` on live work hides that
+  work from the dashboard, and unchecked stragglers left under a completed WP are correctly
+  ignored. Heading markers are the only signal the dashboard has about what's still live.
 
 **After creating the repo, it still won't appear on the dashboard automatically** — the repo
 name has to be added to the `PROJECTS` array in the dashboard's `index.html` by hand. Flag

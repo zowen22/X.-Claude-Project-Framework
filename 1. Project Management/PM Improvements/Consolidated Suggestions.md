@@ -58,7 +58,11 @@ Claude memory).
 
 -----
 
-### 2. Dashboard "next steps" heuristic — doc/code sync landed, deeper phase-aware fix still open
+### 2. Dashboard "next steps" heuristic — ✅ RESOLVED 2026-08-08
+
+*Kept in place (not deleted) so items #1–#7 keep stable numbers; the
+cross-references elsewhere in this file and in `Processed Log.md` point at
+these numbers. Drop it on the next full rebuild of this doc.*
 
 *Source: `8.-Magic-Band` 2026-08-07.*
 
@@ -73,17 +77,22 @@ Compatibility section already says "last 5," not "first 5." Magic-Band's
 own project CLAUDE.md just hadn't been regenerated from the template since
 then, so the session observed stale local doc, not a live drift.
 
-**Still open:** parts (2) and (3) — the dashboard's parser is still raw
-file-order (now "last 5" instead of "first 5"), which is exactly the naive
-fix Magic-Band warned wasn't sufficient. A project with paused phases
-interleaved with active ones can still surface the wrong "next steps."
-Fixing this requires code changes in the separate `X.-Claude-Project-Dashboard`
-repo, plus a companion CLAUDE.md rule that phase-status labels must be kept
-accurate the moment the first item in a phase is checked (see original
-suggestion for the exact proposed rule).
+**Resolved 2026-08-08.** Parts (2) and (3) were taken on together with the
+item-length problem (BGLT handoff `2026-08-08-dashboard-next-steps-vs-wp-
+granularity.md`), since both live in the same `parseNextSteps` function.
 
-**Recommendation:** Not a CLAUDE.md wording task right now — needs a
-decision on whether/when to take on the dashboard repo code change first.
+Notable: the "phase-aware" fix as originally proposed — prefer the
+most-advanced phase with any checked items — was **prototyped against all 9
+dashboard repos and rejected**, because it made 5 of them worse. It surfaced
+ancient Phase-1 items (Golf-Shot-Dispersion: "Create Xcode project";
+High-Ground-Coffee: "Turn off storefront password protection") over genuinely
+current work, since completed WPs are commonly left with unchecked
+stragglers. What shipped instead: keep bottom-of-file recency (new WPs get
+appended, so file order approximates time), and skip only sections whose
+heading marker explicitly says `*(COMPLETE)*` / `*(PAUSED …)*` /
+`*(SKIPPED …)*`. That fixes Magic-Band's actual case without regressing
+anyone else. The companion "keep heading markers accurate" rule was adopted
+and is now in the template's Project Dashboard Compatibility section.
 
 -----
 
