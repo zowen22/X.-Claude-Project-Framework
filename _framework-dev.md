@@ -25,6 +25,7 @@ Claude is the manager of this PM system — the framework, its conventions, and 
 - [x] Project Dashboard compatibility contract in CLAUDE.md
 - [x] `7. Environment Continuity.md` + cascading edits
 - [x] Deployment default (Vercel) + Access & Credentials convention in Technical Reference template
+- [x] `Orchestration/Cross-Session Messaging.md` — live peer messaging vs. durable handoffs
 
 ## Open Handoffs (this repo's own Handoffs/ folder)
 - `2026-08-06-rollout-environment-continuity.md` — sync Environment Continuity changes to BetterGolfLeagueTracker and 7.-Golf-Shot-Dispersion-Tool
@@ -88,3 +89,13 @@ Also noticed but did not act on: `Cowork Instructions - Paste.md` had drifted si
 Added `## Deployment` (default: Vercel, for quick microsites — user's call, delegated to my judgment) and `## Access & Credentials` (document *where* a credential is managed, never the value) sections to the `4. Technical Reference.md` template. Added a Rules line to CLAUDE.md: never commit actual secret values, document the location instead.
 
 Wrote a second handoff, `Handoffs/2026-08-06-credential-inventory.md`, for the same executor session to scan existing projects for credential/integration references (env files, CI config, deploy config — locations and names only, never values) and populate the new sections per repo. Marked explicitly Parallel-safe: No against the environment-continuity handoff since both touch `4. Technical Reference.md` in the same repos — run sequentially. Heavy Stop Conditions on this one: if a real secret is found already committed anywhere, stop and flag to the user as a likely-needs-rotation issue rather than working around it silently.
+
+### 2026-08-10 - Cross-session messaging documented (COMPLETED)
+
+Added `Orchestration/Cross-Session Messaging.md` covering the `ListAgents` / `SendMessage` transport: discovery, name-is-the-address rules, queue-and-drain delivery, per-session permission boundaries, and the distinction between live coordination and durable record. Breadcrumbed from `Orchestration Instructions.md` under Running Executors in Parallel. Verified live by round-tripping a status ping with a peer session ("MagicBand Remote"), which replied idle on `main` in `~/projects/8.-Magic-Band`.
+
+Two findings drove the content. First, **session names carry no isolation** — peers listed as "Remote Control" turned out to be on the same WSL2 filesystem as the querying session, so a name like "MagicBand Remote" is a user-facing label, not a scope boundary. What actually separates sessions is cwd, the `CLAUDE.md` resolved from it, transcript, and per-session permissions — not reach. Documented explicitly because assuming otherwise is how project scope blurs. Second, **refs are ephemeral**: `SendMessage` needs the `[ref]` suffix when a name is ambiguous, and those refs only resolve as read from a current `ListAgents` — so they must never be written into a handoff or PM file.
+
+Decisions: logged here rather than in the Dashboard repo. User initially pointed at `X.-Claude-Project-Dashboard` ("the one that contains the dashboard") but `Orchestration/` already lives in the framework repo, and a second orchestration doc in a project instance would create exactly the scope blur the request was meant to prevent. Dashboard repo is a project instance (the static site), not the PM home. Also left `7. Environment Continuity.md` unedited — the new doc cross-references it instead, since its "local disk is disposable" rule still holds for mobile/web sessions and only the same-machine case needed clarifying.
+
+Next: `Cowork Instructions - Paste.md` remains behind `CLAUDE.md` (pre-existing drift noted 2026-08-06, still unaddressed) — cross-session messaging was not added to it either. Consider whether the messaging doc warrants a CLAUDE.md breadcrumb so sessions surface it without reading `Orchestration/` first.

@@ -56,6 +56,11 @@ Report, flip Status to `Done` (or `Blocked` on a stop condition), commit.
 Do not touch other Open handoffs, even for "quick fixes" — log them as
 Follow-ups instead.
 
+Concurrent sessions can also message each other directly at run time — see
+`Orchestration/Cross-Session Messaging.md` for the mechanics, addressing
+rules, and permission boundaries. Handoffs remain the durable record; a
+message is not one.
+
 ## Before Starting Any Session
 
 Read these files in order before doing anything else:
